@@ -19,6 +19,12 @@ defmodule PhxHelloSignWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/account", PhxHelloSignWeb do
+    pipe_through :browser
+
+    get "/", AccountController, :index
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", PhxHelloSignWeb do
   #   pipe_through :api
