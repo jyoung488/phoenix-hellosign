@@ -1,0 +1,7 @@
+<ul>
+  <li><b>Account ID: </b><%= @account_id %></li>
+  <li><b>Email Address: </b><%= link("#{@email}", to: "mailto: #{@email}") %></b></li>
+</ul>
+
+<%= link "Back", to: account_path(@conn, :index) %><br>
+<%= link "Home", to: page_path(@conn, :index) %>
