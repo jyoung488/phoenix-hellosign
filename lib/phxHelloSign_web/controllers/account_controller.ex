@@ -40,6 +40,24 @@ defmodule PhxHelloSignWeb.AccountController do
 
     render conn, "update.html", account_id: account_id, email: email, callback_url: callback_url
   end
+
+  def verify(conn, _params) do
+    api_key = Application.get_env(:phxHelloSign, :app_vars)[:api_key]
+    email = "jen.young@hellosign.com"
+    url = "https://#{api_key}:@api.hellosign.com/v3/account/verify"
+
+    content = Poison.encode!%{"email_address" => email}
+
+    response = HTTPotion.post(url, [body: content, headers: ["Content-Type": "application/json"]])
+
+    body = response.body
+
+    data = Poison.decode!(body)
+    %{"account" => account} = data
+    %{"email_address" => email} = account
+
+    render conn, "verify.html", email: email
+  end
 end
 
 #https://0f09c444c7b8b650844cfb4ceb387191a02b9e3ca241c757574d72448080ebd6@api.hellosign.com/v3/account

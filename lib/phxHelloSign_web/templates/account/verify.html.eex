@@ -1,0 +1,4 @@
+There is an account for <%= link("#{@email}", to: "mailto:#{@email}") %>!
+<p>
+<%= link "Back", to: account_path(@conn, :index) %><br>
+</p>

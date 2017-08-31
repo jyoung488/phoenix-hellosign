@@ -10,6 +10,6 @@
     Create Account
   </li>
   <li>
-    Verify Account
+    <%= link("Verify Account", to: "/account/verify") %>
   </li>
 </ul>
