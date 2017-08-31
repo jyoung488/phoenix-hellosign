@@ -15,8 +15,10 @@
     <div class="container">
       <header class="header">
         <nav role="navigation">
+          <%= link "Home", to: page_path(@conn, :index) %>
         </nav>
         <span class="logo"></span>
+
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

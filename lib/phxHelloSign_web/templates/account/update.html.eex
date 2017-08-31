@@ -1,6 +1,7 @@
 <ul>
   <li><b>Account ID: </b><%= @account_id %></li>
   <li><b>Email Address: </b><%= link("#{@email}", to: "mailto: #{@email}") %></b></li>
+  <li><b>Callback URL: </b><%= link("#{@callback_url}", to: "#{@callback_url}") %></li>
 </ul>
 
 <%= link "Back", to: account_path(@conn, :index) %><br>

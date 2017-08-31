@@ -4,7 +4,7 @@
     <%= link("Get Account", to: "/account/info") %>
   </li>
   <li>
-    Update Account
+    <%= link("Update Account", to: "/account/update") %>
   </li>
   <li>
     Create Account

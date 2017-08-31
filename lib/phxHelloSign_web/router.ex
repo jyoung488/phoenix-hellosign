@@ -24,6 +24,7 @@ defmodule PhxHelloSignWeb.Router do
 
     get "/", AccountController, :index
     get "/info", AccountController, :info
+    get "/update", AccountController, :update
   end
 
   # Other scopes may use custom stacks.
