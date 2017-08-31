@@ -14,6 +14,10 @@ config :phxHelloSign, PhxHelloSignWeb.Endpoint,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../assets", __DIR__)]]
 
+config :phxHelloSign, :app_vars,
+  client_id: System.get_env["HS_CLIENT_ID"],
+  api_key: System.get_env["HS_API_KEY"]
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

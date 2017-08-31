@@ -1,0 +1,15 @@
+<center><h1>HelloSign Account Info on Phoenix!</h1></center>
+<ul>
+  <li>
+    <%= link("Get Account", to: "/account/info") %>
+  </li>
+  <li>
+    <%= link("Update Account", to: "/account/update") %>
+  </li>
+  <li>
+    Create Account
+  </li>
+  <li>
+    <%= link("Verify Account", to: "/account/verify") %>
+  </li>
+</ul>

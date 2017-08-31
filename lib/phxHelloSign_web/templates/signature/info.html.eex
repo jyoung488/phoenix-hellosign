@@ -1,0 +1,5 @@
+<h1>Get Signature Request</h1>
+<%= for {key, value} <- @signature_request do %>
+  <b><%= inspect key %></b>: <%= inspect value %><br>
+<% end %>
+<p><%= link "Back", to: signature_path(@conn, :index) %></p>
