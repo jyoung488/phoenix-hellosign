@@ -1,5 +1,9 @@
 <h1>List Signature Request</h1>
-<%= for {key, value} <- @signature_requests do %>
+<%= inspect @list_info %>
+<%= for {key, value} <- @list_info do %>
   <b><%= inspect key %></b>: <%= inspect value %><br>
 <% end %>
+<%= inspect @signature_requests %>
+
+
 <p><%= link "Back", to: signature_path(@conn, :index) %></p>

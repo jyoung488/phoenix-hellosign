@@ -28,6 +28,8 @@ defmodule PhxHelloSignWeb.SignatureController do
     data = response.body
     |> Poison.decode!
 
-    render conn, "list.html", signature_requests: data
+    %{"list_info" => list_info, "signature_requests" => signature_requests} = data
+
+    render conn, "list.html", signature_requests: signature_requests, list_info: list_info
   end
 end
