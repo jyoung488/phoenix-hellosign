@@ -1,1 +1,34 @@
-hai
+<center><h1>HelloSign Signature Request Info on Phoenix!</h1></center>
+<ul>
+  <li>
+    Get Signature Request:
+    <%= form_for @conn, signature_path(@conn, :info), [as: :signature], fn f -> %>
+        <%= text_input f, :id, placeholder: "Signature Request ID" %><br>
+      <%= submit "Submit"  %>
+    <% end %>
+  </li>
+  <li>
+    <%= link "List Signature Requests", to: signature_path(@conn, :list) %>
+  </li>
+  <li>
+    Send Signature Request
+  </li>
+  <li>
+    Send Signature Request with Template
+  </li>
+  <li>
+    Send Signature Request Reminder
+  </li>
+  <li>
+    Update Signature Request
+  </li>
+  <li>
+    Cancel Incomplete Signature Request
+  </li>
+  <li>
+    Remove Signature Request Access
+  </li>
+  <li>
+    Get Files
+  </li>
+</ul>

@@ -32,6 +32,9 @@ defmodule PhxHelloSignWeb.Router do
     pipe_through :browser
 
     get "/", SignatureController, :index
+    get "/info", SignatureController, :info
+    post "/info", SignatureController, :info
+    get "/list", SignatureController, :list
   end
 
   # Other scopes may use custom stacks.
