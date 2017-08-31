@@ -9,7 +9,7 @@
         <%= link "Account", to: account_path(@conn, :index) %>
       </li>
       <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
+        <%= link "Signature Requests", to: signature_path(@conn, :index) %>
       </li>
       <li>
         <a href="https://github.com/phoenixframework/phoenix">Source</a>

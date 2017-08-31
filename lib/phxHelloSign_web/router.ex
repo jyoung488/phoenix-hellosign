@@ -28,6 +28,12 @@ defmodule PhxHelloSignWeb.Router do
     get "/verify", AccountController, :verify
   end
 
+  scope "/signatures", PhxHelloSignWeb do
+    pipe_through :browser
+
+    get "/", SignatureController, :index
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", PhxHelloSignWeb do
   #   pipe_through :api
