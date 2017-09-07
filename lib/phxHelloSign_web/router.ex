@@ -35,6 +35,7 @@ defmodule PhxHelloSignWeb.Router do
     get "/info", SignatureController, :info
     post "/info", SignatureController, :info
     get "/list", SignatureController, :list
+    get "/send", SignatureController, :send
   end
 
   # Other scopes may use custom stacks.
