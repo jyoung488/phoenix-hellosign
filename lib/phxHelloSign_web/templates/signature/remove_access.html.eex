@@ -1,0 +1,4 @@
+<h1>Signature Request Access removed!</h1>
+<%= inspect @response %>
+
+<p><%= link "Back", to: signature_path(@conn, :index) %></p>

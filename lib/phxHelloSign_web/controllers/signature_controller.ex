@@ -89,4 +89,26 @@ defmodule PhxHelloSignWeb.SignatureController do
 
     render conn, "update_request.html", response: response
   end
+
+  def cancel_request(conn, _params) do
+    api_key = Application.get_env(:phxHelloSign, :app_vars)[:api_key]
+    id = conn.params["signature"]["id"]
+
+    url = "https://#{api_key}:@api.hellosign.com/v3/signature_request/cancel/#{id}"
+
+    response = HTTPotion.post url
+
+    render conn, "cancel_request.html", response: response
+  end
+
+  def remove_access(conn, _params) do
+    api_key = Application.get_env(:phxHelloSign, :app_vars)[:api_key]
+    id = conn.params["signature"]["id"]
+
+    url = "https://#{api_key}:@api.hellosign.com/v3/signature_request/remove/#{id}"
+
+    response = HTTPotion.post url
+
+    render conn, "remove_access.html", response: response
+  end
 end
