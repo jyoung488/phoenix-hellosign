@@ -1,0 +1,4 @@
+<h1>Get File!</h1>
+<%= link 'Download Signature Request', to: @url %>
+
+<p><%= link "Back", to: signature_path(@conn, :index) %></p>
