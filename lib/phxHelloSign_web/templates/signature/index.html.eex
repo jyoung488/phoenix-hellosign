@@ -17,7 +17,13 @@
     <%= link "Send Signature Request with Template", to: signature_path(@conn, :send_template) %>
   </li>
   <li>
-    Send Signature Request Reminder
+    Send Signature Request Reminder:
+    <%= form_for @conn, signature_path(@conn, :send_reminder), [as: :signature], fn f -> %>
+        <%= text_input f, :id, placeholder: "Signature Request ID" %><br>
+        <%= text_input f, :email, placeholder: "Email address" %><br>
+        <%= text_input f, :name, placeholder: "Name" %><br>
+      <%= submit "Submit"  %>
+    <% end %>
   </li>
   <li>
     Update Signature Request

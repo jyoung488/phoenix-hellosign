@@ -61,4 +61,18 @@ defmodule PhxHelloSignWeb.SignatureController do
 
     render conn, "send_template.html", response: response
   end
+
+  def send_reminder(conn, _params) do
+    api_key = Application.get_env(:phxHelloSign, :app_vars)[:api_key]
+    id = conn.params["signature"]["id"]
+    email = conn.params["signature"]["email"]
+    name = conn.params["signature"]["name"]
+    url = "https://#{api_key}:@api.hellosign.com/v3/signature_request/remind/#{id}"
+
+    content = Poison.encode!(%{"email_address": email, "name": name})
+
+    response = HTTPotion.post url, [body: content, headers: ["User-Agent": "Phoenix App", "Content-Type": "application/json"]]
+
+    render conn, "send_reminder.html", response: response
+  end
 end
