@@ -111,4 +111,17 @@ defmodule PhxHelloSignWeb.SignatureController do
 
     render conn, "remove_access.html", response: response
   end
+
+  def get_files(conn, _params) do
+    api_key = Application.get_env(:phxHelloSign, :app_vars)[:api_key]
+    id = conn.params["signature"]["id"]
+    url = "https://#{api_key}:@api.hellosign.com/v3/signature_request/files/#{id}?get_url=1"
+
+    response = HTTPotion.get url
+    data = Poison.decode!(response.body)
+
+    %{"file_url" => file_url} = data
+
+    render conn, "get_files.html", url: file_url
+  end
 end

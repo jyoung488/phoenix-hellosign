@@ -49,6 +49,10 @@
     <% end %>
   </li>
   <li>
-    Get Files
+    Get Files:
+    <%= form_for @conn, signature_path(@conn, :get_files), [as: :signature], fn f -> %>
+        <%= text_input f, :id, placeholder: "Signature Request ID" %><br>
+      <%= submit "Submit"  %>
+    <% end %>
   </li>
 </ul>

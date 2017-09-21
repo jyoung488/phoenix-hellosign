@@ -45,6 +45,8 @@ defmodule PhxHelloSignWeb.Router do
     post "/cancel-request", SignatureController, :cancel_request
     get "/remove-access", SignatureController, :remove_access
     post "/remove-access", SignatureController, :remove_access
+    get "/get-files", SignatureController, :get_files
+    post "/get-files", SignatureController, :get_files
   end
 
   # Other scopes may use custom stacks.
