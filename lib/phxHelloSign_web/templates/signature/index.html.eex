@@ -14,7 +14,7 @@
     <%= link "Send Signature Request", to: signature_path(@conn, :send) %>
   </li>
   <li>
-    Send Signature Request with Template
+    <%= link "Send Signature Request with Template", to: signature_path(@conn, :send_template) %>
   </li>
   <li>
     Send Signature Request Reminder

@@ -1,1 +1,4 @@
+<h1>Signature Request Sent!</h1>
 <%= inspect @response %>
+
+<p><%= link "Back", to: signature_path(@conn, :index) %></p>

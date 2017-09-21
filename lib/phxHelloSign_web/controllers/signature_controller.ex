@@ -37,19 +37,28 @@ defmodule PhxHelloSignWeb.SignatureController do
     api_key = Application.get_env(:phxHelloSign, :app_vars)[:api_key]
     url = "https://#{api_key}:@api.hellosign.com/v3/signature_request/send"
 
-    content = Poison.encode!(%{"signers": [%{"name": "Jen", "email_address": "jen.young+1@hellosign.com"}],
+    content = Poison.encode!(%{"signers": [%{"name": "Jen", "email_address": "jen.young+1@hellosign.com"}, %{"name": "Jen 2", "email_address": "jyoung488@gmail.com"}],
     "title": "Phoenix Test",
     "subject": "Test subject",
     "file_url": "https://i.pinimg.com/736x/d4/6b/ce/d46bceba9774e062581df3a1dff47864--corgi-tattoo-art-shows.jpg",
-    "test_mode": 1,
-    "client_id": "b7deafb6c27f6131f5cb67adf94d0454"})
-
-    IO.inspect content
+    "test_mode": 1})
 
     response = HTTPotion.post url, [body: content, headers: ["User-Agent": "Phoenix App", "Content-Type": "application/json"]]
 
-    IO.inspect response
-
     render conn, "send.html", response: response
+  end
+
+  def send_template(conn, _params) do
+    api_key = Application.get_env(:phxHelloSign, :app_vars)[:api_key]
+    url = "https://#{api_key}:@api.hellosign.com/v3/signature_request/send_with_template"
+
+    content = Poison.encode!(%{"signers": %{"Client": %{"name": "Jen", "email_address": "jen.young+1@hellosign.com"}},
+    "template_id": "5b7d915246886b0f9125bf06c0e5180d147bd3ba",
+    "subject": "Test subject",
+    "test_mode": 1})
+
+    response = HTTPotion.post url, [body: content, headers: ["User-Agent": "Phoenix App", "Content-Type": "application/json"]]
+
+    render conn, "send_template.html", response: response
   end
 end
