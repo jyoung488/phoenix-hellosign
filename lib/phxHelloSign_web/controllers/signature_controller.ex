@@ -75,4 +75,18 @@ defmodule PhxHelloSignWeb.SignatureController do
 
     render conn, "send_reminder.html", response: response
   end
+
+  def update_request(conn, _params) do
+    api_key = Application.get_env(:phxHelloSign, :app_vars)[:api_key]
+    request_id = conn.params["signature"]["request_id"]
+    signature_id = conn.params["signature"]["sig_id"]
+    email = conn.params["signature"]["email"]
+    url = "https://#{api_key}:@api.hellosign.com/v3/signature_request/update/#{request_id}"
+
+    content = Poison.encode!(%{"signature_id": signature_id, "email_address": email})
+
+    response = HTTPotion.post url, [body: content, headers: ["User-Agent": "Phoenix App", "Content-Type": "application/json"]]
+
+    render conn, "update_request.html", response: response
+  end
 end

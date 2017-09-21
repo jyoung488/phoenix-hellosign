@@ -39,6 +39,8 @@ defmodule PhxHelloSignWeb.Router do
     get "/send-with-template", SignatureController, :send_template
     get "/send-reminder", SignatureController, :send_reminder
     post "/send-reminder", SignatureController, :send_reminder
+    get "/update-request", SignatureController, :update_request
+    post "/update-request", SignatureController, :update_request
   end
 
   # Other scopes may use custom stacks.

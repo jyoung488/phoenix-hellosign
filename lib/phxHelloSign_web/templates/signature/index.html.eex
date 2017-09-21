@@ -26,7 +26,13 @@
     <% end %>
   </li>
   <li>
-    Update Signature Request
+    Update Signature Request:
+    <%= form_for @conn, signature_path(@conn, :update_request), [as: :signature], fn f -> %>
+        <%= text_input f, :request_id, placeholder: "Signature Request ID" %><br>
+        <%= text_input f, :sig_id, placeholder: "Signature ID" %><br>
+        <%= text_input f, :email, placeholder: "Email address" %><br>
+      <%= submit "Submit"  %>
+    <% end %>
   </li>
   <li>
     Cancel Incomplete Signature Request
